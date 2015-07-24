@@ -1,0 +1,13 @@
+最近在找Qt下可用的与java通用的AES加密解密代码。
+openssl不是很好用（不会和Qt编译到一起。。。)
+所以参考网上的资料，终于找到了一个C++可用的代码，稍作修改。
+
+参考：
+http://blog.csdn.net/trasin8848/article/details/6314933
+（PKCS5Padding）
+http://download.csdn.net/detail/zheng110120/4750750
+（大部分C++代码）
+
+1.AESTools类可以直接使用。
+2.构造方法初始化key，如果key的长度不够，或者太长，会用重复的方式规范。
+3.AESTools的剩余两个方法，可以用来加密与解密。

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Activation Verification
+Name[zh_CN]=系统激活
+Exec=activationVerification
+Terminal=false
+Type=Application
