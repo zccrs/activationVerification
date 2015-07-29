@@ -55,7 +55,7 @@ void MainWindow::init()
         dialog = new InputDialog(this);
         dialog->show();
 
-        key = dialog->getText().toLatin1();
+        key = dialog->getText().toLatin1().toUpper();
 
         while(!keyIsPermissible(key)&&dialog->isVisible()){
             QMessageBox messagebox(this);
@@ -84,14 +84,17 @@ void MainWindow::init()
 
 bool MainWindow::keyIsPermissible(const QByteArray &key) const
 {
-    if(key.length()>=28){
+    if(key.length() == 20){
         AESTools tools("qwertyuiop[]';lk");
-        QByteArray array = tools.Encrypt(key.left(6)).toBase64();
-        array = array.replace('+', 'A');
-        array = array.replace('/', 'D');
-        array = array.replace('=', "");
+        QByteArray temp = tools.Encrypt(key.left(10)).toHex().toUpper();
+        QByteArray result;
+        QByteArray array="123456789QWERTYUIOPASDFGHJKLZXCV";
 
-        if(key.right(22) == array){
+        for(int i=0;i<10; ++i){
+            result.append(temp[array.indexOf(key[i])]);
+        }
+
+        if(key.right(10) == result){
             return true;
         }
     }

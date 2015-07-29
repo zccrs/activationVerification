@@ -2,16 +2,17 @@
 #include "mainwindow.h"
 #include "aestools.h"
 #include <QTime>
+#include <QDebug>
 #include <QTranslator>
 #include <QLibraryInfo>
 
-/*QByteArray array="qwertyuiopasdfghjklzxcvbnm123456789QWERTYUIOPASDFGHJKLZXCVBNM";
-
-QByteArray test()
+/*QByteArray test()
 {
     QByteArray result;
+    QByteArray array="123456789QWERTYUIOPASDFGHJKLZXCV";
 
-    for(int i=0;i<6;++i){
+
+    for(int i=0;i<10;++i){
         result.append(array[qrand()%array.length()]);
     }
 
@@ -36,6 +37,7 @@ int main(int argc, char *argv[])
 
     MainWindow window;
     window.init();
+
     /*AESTools tools("qwertyuiop[]';lk");
 
     QTime t = QTime::currentTime();
@@ -43,18 +45,21 @@ int main(int argc, char *argv[])
 
     for(int i=0;i<100;++i){
         QByteArray temp = test();
+        QByteArray result;
+        QByteArray temp2 = tools.Encrypt(temp).toHex();
+        QByteArray array="123456789QWERTYUIOPASDFGHJKLZXCV";
 
-        QByteArray array = tools.Encrypt(temp).toBase64();
-        array = array.replace('+', 'A');
-        array = array.replace('/', 'D');
-        array = array.replace('=', "");
+        for(int i=0;i<10; ++i){
+            result.append(temp2[array.indexOf(temp[i])]);
+        }
 
-        if(array.contains('0')){
+        if(result.contains('0')){
             --i;
             continue;
         }
 
-        qDebug()<<temp+array;
+        qDebug()<<temp+result.toUpper();
+
     }*/
 
     return 0;

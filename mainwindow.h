@@ -13,9 +13,11 @@ public:
     ~MainWindow();
 
     void init();
-    bool keyIsPermissible(const QByteArray& key) const;
+
 private:
     InputDialog *dialog;
+
+    bool keyIsPermissible(const QByteArray& key) const;
 };
 
 #endif // MAINWINDOW_H

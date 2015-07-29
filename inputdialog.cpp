@@ -15,7 +15,7 @@ InputDialog::InputDialog(QWidget *parent)
     setAttribute(Qt::WA_QuitOnClose);
     setWindowFlags(Qt::ToolTip|Qt::WindowStaysOnTopHint);
     setWindowModality(Qt::ApplicationModal);
-    setFixedSize(340, 180);
+    setFixedSize(240, 180);
     move(qApp->desktop()->width()/2-width()/2, qApp->desktop()->height()/2-height()/2);
 
     init();
@@ -45,7 +45,7 @@ void InputDialog::init()
 {
     loop = new QEventLoop(this);
 
-    edit.setInputMask("NNNN-NNNN-NNNN-NNNN-NNNN-NNNN-NNNN;0");
+    edit.setInputMask("NNNNN-NNNNN-NNNNN-NNNNN;0");
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
